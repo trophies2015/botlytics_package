@@ -16,6 +16,6 @@ bot.send_request(API_KEY, 'text', 'incoming', 'conversation_name')
 
 ```
 
-## Website
+## API Documentation
 
 http://botlytics.api-docs.io/
