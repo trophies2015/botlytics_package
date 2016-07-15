@@ -3,3 +3,4 @@ setup.cfg
 setup.py
 botlytics/__init__.py
 botlytics/bot.py
+botlytics/bot2.py

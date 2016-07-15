@@ -1,10 +1,15 @@
-import requests
-
+import httplib
 def send_request(API_KEY, text, kind, conversation_identifier):
-  URL = "http://www.botlytics.co/api/v1/messages?token=" + API_KEY
+  conn = httplib.HTTPConnection("www.botlytics.co")
+  headers = { 'content-type': "application/json" }
+  payload = ""
+  URL = "/api/v1/messages?token=" + API_KEY
   if (len(conversation_identifier) > 0):
-      return requests.post(URL, data={"message":{"text":text,"kind":kind,"conversation_identifier":conversation_identifier}}, headers={"content-type":"application/json"})
+     payload = "{\"message\":{\"text\":\""+text+"\",\"kind\":\""+kind+"\",\"conversation_identifier\":\""+conversation_identifier+"\"}}"
   else:
-      return requests.post(URL, data={"message":{"text":text,"kind":kind}}, headers={"content-type":"application/json"})
-
+     payload = "{\"message\":{\"text\":\""+text+"\",\"kind\":\""+kind+"\"}}"
+  conn.request("POST", URL, payload, headers)
+  res = conn.getresponse()
+  data = res.read()
+  return res
 
