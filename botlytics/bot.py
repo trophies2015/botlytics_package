@@ -7,7 +7,4 @@ def send_request(API_KEY, text, kind, conversation_identifier):
   else:
       return requests.post(URL, data={"message":{"text":text,"kind":kind}}, headers={"content-type":"application/json"})
 
-ta = send_request("7d1621e65ebb3f29", "heloe", "incoming", "okok")
-print(ta.text)
-
 
