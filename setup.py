@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'botlytics',
   packages = ['botlytics'],
-  version = '0.3',
+  version = '0.4',
   description = 'Allow the user to interface with the botlytics API',
   author = 'Botlytics Team',
   url = 'https://github.com/trophies2015/botlytics_package',
